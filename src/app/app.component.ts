@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'meeting-time-calendar-angular';
+  title = 'meeting-calendar';
 }

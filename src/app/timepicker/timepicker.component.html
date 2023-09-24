@@ -1,0 +1,26 @@
+<div class="container">
+    <h2>Service Timings</h2>
+  
+    <form #timingForm="ngForm" (ngSubmit)="addTiming()">
+      <div *ngFor="let timing of timings; let i = index">
+        <div class="timing-inputs" >
+          <span>From: </span><input type="time" [(ngModel)]="timing.from" name="from{{i}}" required>
+          &nbsp;
+          <span>To: </span><input type="time" [(ngModel)]="timing.to" name = "to{{i}}" required>
+          &nbsp;
+          <button type="button" (click)="removeTiming(i)">Remove</button>
+          <br/>
+        </div>
+      </div>
+  
+      <button type="button" (click)="addEmptyTiming()">Add Timing</button>
+      <button type="submit" [disabled]="timingForm.invalid">Submit</button>
+    </form>
+  
+    <div *ngIf="timings.length > 0">
+      <h3>Meeting Service Schedule:</h3>
+      <ul>
+        <li *ngFor="let listItem of list">{{ listItem.from }} - {{ listItem.to }}</li>
+      </ul>
+    </div>
+  </div>
